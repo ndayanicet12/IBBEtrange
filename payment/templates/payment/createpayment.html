@@ -1,0 +1,5 @@
+<form method="post">
+{% csrf_token %}
+{{ payment.as_p }}
+<input type="submit" value="save">
+</form>

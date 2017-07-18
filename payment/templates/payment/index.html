@@ -1,0 +1,16 @@
+<center>
+<h1>Details des ordres de payment :<br><br></h1>
+
+
+<table border="3"> 
+ 
+<tr><th>Monnaie </th><th>Montant en chiffres</th><th>Beneficiaire & Adresse</th><th>Banque  & No de Compte</th><th>Montant en lettres</th><th> Details de paiement </th><th>Date</th>th><th>Donneur d'ordre</th>th><th>Numéro de Compte</th><th>Commissions</th></tr>
+ {% for pay in payment %}
+<tr><td>{{ pay.monnaie }}</td><td>{{ pay.amountchiffre }} </td><td>{{ pay.beneficiary }}  {{ pay.address }}</td><td>{{ pay.bank }} {{ pay.accountbank }}</td><td>{{ pay.amountletter }}</td><td>{{ pay.detailpayment }}</td><td>{{ pay.datepayment }}</td><td> <td>{{ pay.principal }}</td><td>{{ pay.accountnumber }}</td><td>{{ pay.ciostopay }}</td></tr>
+ {% endfor %}
+</table>
+</div>
+<br><br> <a href="{% url 'payment:createpayment' %}"  > Add a new payment</a>
+
+ 
+</center>
