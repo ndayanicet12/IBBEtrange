@@ -50,7 +50,7 @@ def  addpayment(request):
 	 
     if request.method=='POST':
   
-        trs = Paymentorder.objects.create( monnaie=request.POST['monnaie'], amountchiffre=request.POST['amountchiffre'],beneficiary=request.POST['beneficiary'], address=request.POST['address'], bank=request.POST['bank'],accountbank = request.POST['accountbank'], amountletter=request.POST['amountletter'], detailpayment=request.POST['detailpayment'], principal=request.POST['principal'], accountnumber=request.POST['accountnumber'],ciostopay=request.POST['ciostopay'])
+        trs = Paymentorder.objects.create( monnaie=request.POST['monnaie'], amountchiffre=request.POST['amountchiffre'],beneficiary=request.POST['beneficiary'], address=request.POST['address'], bank=request.POST['bank'],accountbank = request.POST['accountbank'], amountletter=request.POST['amountletter'], detailpayment=request.POST['detailpayment'], principal=request.POST['principal'], accountnumber=request.POST['accountnumber'],ciostopay=request.POST['ciostopay'],ibancode=request.POST['ibancode'], swiftcode=request.POST['swiftcode'],addressbank=request.POST['ciostopay'])
         trs.save()
 	return render(request, 'payment/addpayment.html', {'trs':trs})
                   

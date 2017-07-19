@@ -14,13 +14,16 @@ ORDER_CHOICES = (
  
 )
 
-class Paymentorder(models.Model):
+class  Paymentorder(models.Model):
     monnaie = models.CharField(max_length=5, choices = CURRENCY_CHOICES,verbose_name=_(u'Monnaie'),default = "EURO")
     amountchiffre=models.FloatField(verbose_name=_(u' Montant en chiffres'))
     beneficiary = models.CharField(max_length=256,verbose_name=_(u'Beneficaire '))
-    address = models.CharField(max_length=256, verbose_name=_(u'Adresse du beneficiaire'))
+    address = models.TextField(max_length=256, verbose_name=_(u'Adresse du beneficiaire'))
     bank = models.CharField(max_length=256, verbose_name=_(u'Banque'))
     accountbank = models.CharField(max_length=256, verbose_name=_(u'Numero de Compte '))
+    ibancode = models.CharField(max_length=256, verbose_name=_(u' Code Iban   '))
+    swiftcode = models.CharField(max_length=256, verbose_name=_(u'Code SWIFT'))
+    addressbank = models.TextField(max_length=256, verbose_name=_(u'Adresse de la Banque'))
     amountletter = models.CharField(max_length=256, verbose_name=_(u'Montant en lettres'))
     detailpayment = models.TextField(max_length=256, verbose_name=_(u'Detals de paiement'))
     datepayment = models.DateTimeField(auto_now_add=True, verbose_name=_(u'Date'))
