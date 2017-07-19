@@ -1,0 +1,41 @@
+  <body>
+    
+<center> 
+{% if form %}
+<form   method="post">
+        <h2>Welcome to the payment page<br><br> </h2>
+
+        {% csrf_token %}
+ 
+        {{ form.as_p }}
+ <input type="submit" value="Transférer"> 
+</form>
+{% endif %}
+{% if trs %}
+<br><br><br>
+<h1> Detail de payement :<br><br/> </h1>
+<table border="0">
+  <tr>
+      <p><td>Monnaie</td><td>{{ trs.monnaie }} </td></p>
+  </tr><tr>
+      <p><td>Montant en chiffres</td><td>{{ trs.amountchiffre }}</p></td>
+  </tr>
+
+  <tr>
+      <p><td>Beneficiaire & Adresse</td><td>{{ trs.beneficiary }} {{ trs.address }}</p></td>
+  </tr>
+
+  <tr><p><td>Banque  & No de Compte</td><p><td> {{ trs.bank }} {{ trs.accountbank }}</td></p></tr>
+  <tr><p><td>Iban Code & Code SWIFT</td><td>{{ trs.ibancode }}  {{ trs.swiftcode }}  </td></p></tr>
+  <tr><p><td>Adresse de la Banque</td><td>{{ trs.addressbank }}  </td></p></tr>
+  <tr><p><td>Montant en lettres</td><td>{{ trs.amountletter }}  </td></p></tr>
+  <tr><p><td>Details de paiement</td><td>{{ trs.detailpayment }}  </td></p></tr>
+  <tr><p><td>Donneur d'ordre</td><td>{{ trs.principal }} </td></p></tr>
+  <tr><p><td>Numéro de Compte</td><td>{{ trs.accountnumber }} </td></p></tr>
+  <tr><p><td>Commissions</td><td>{{ trs.ciostopay }} </td></p></tr>
+ 
+</table>
+ <br><br><br> <a href="{% url 'payment:addpayment' %}"  > Add a new payment</a>
+ <br><br><br> <a href="{% url 'payment:index' %}"  > List payment   </a>
+{% endif %}
+ </body>

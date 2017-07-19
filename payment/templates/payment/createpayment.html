@@ -1,5 +1,13 @@
-<form method="post">
+
+<body>
+<h1> Bienvenu au formulaire de paiement a l'INTERBANK BURUNDI</h1>
+{#% if payment % #}
+
+<form method="post" >
 {% csrf_token %}
-{{ payment.as_p }}
+{{ form.as_p }}
 <input type="submit" value="save">
 </form>
+
+{#% endif  %#}
+</body>

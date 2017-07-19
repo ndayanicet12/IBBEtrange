@@ -9,13 +9,14 @@ from payment.models import *
 
 class CreatePayment(CreateView):
     model=Paymentorder
+    #fields = "__all__"
     form_class=PaymentForm
     template_name='payment/createpayment.html'
-    context_object_name = "payment"
+    #context_object_name = "payment"
     
     def get_object(self):
  
-       return super(CreateTransfer, self).get_object()
+       return super(CreatePayment, self).get_object()
 
     
  
@@ -29,7 +30,7 @@ class CreatePayment(CreateView):
 
 class ListPayment(ListView):
     model=Paymentorder
-    form_class=PaymentForm
+    #form_class=PaymentForm
     template_name='payment/index.html'
     context_object_name = "payment"
     
@@ -43,6 +44,19 @@ class ListPayment(ListView):
         context = super(ListPayment, self).get_context_data(**kwargs)
         context['action'] = reverse('payment:index')
         return context
+
+
+def  addpayment(request):
+	 
+    if request.method=='POST':
+  
+        trs = Paymentorder.objects.create( monnaie=request.POST['monnaie'], amountchiffre=request.POST['amountchiffre'],beneficiary=request.POST['beneficiary'], address=request.POST['address'], bank=request.POST['bank'],accountbank = request.POST['accountbank'], amountletter=request.POST['amountletter'], detailpayment=request.POST['detailpayment'], principal=request.POST['principal'], accountnumber=request.POST['accountnumber'],ciostopay=request.POST['ciostopay'],ibancode=request.POST['ibancode'], swiftcode=request.POST['swiftcode'],addressbank=request.POST['ciostopay'])
+        trs.save()
+	return render(request, 'payment/addpayment.html', {'trs':trs})
+                  
+    else:
+        form=PaymentForm()
+        return render(request, 'payment/addpayment.html', {'form':form})
 
 
 
