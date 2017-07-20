@@ -4,9 +4,9 @@
 
 <table border="3"> 
  
-<tr><th>Monnaie </th><th>Montant en chiffres</th><th>Beneficiaire & Adresse</th><th>Banque  & No de Compte</th><th>Montant en lettres</th><th> Details de paiement </th><th>Date</th><th>Donneur d'ordre</th><th>Numéro de Compte</th><th>Commissions</th></tr>
+<tr><th>Monnaie </th><th>Montant en chiffres</th><th>Beneficiaire & Adresse</th><th>Banque  & No de Compte</th><th>Montant en lettres</th><th> Details de paiement </th><th>Date</th><th>Donneur d'ordre</th><th>Numéro de Compte</th><th>Commissions</th><th>Look a Detail </th></tr>
  {% for pay in payment %}
-<tr><td>{{ pay.monnaie }}</td><td>{{ pay.amountchiffre }} </td><td>{{ pay.beneficiary }}  {{ pay.address }}</td><td>{{ pay.bank }} {{ pay.accountbank }}</td><td>{{ pay.amountletter }}</td><td>{{ pay.detailpayment }}</td><td>{{ pay.datepayment }}</td><td>{{ pay.principal }}</td><td>{{ pay.accountnumber }}</td><td>{{ pay.ciostopay }}</td></tr>
+<tr><td>{{ pay.monnaie }}</td><td>{{ pay.amountchiffre }} </td><td>{{ pay.beneficiary }}  {{ pay.address }}</td><td>{{ pay.bank }} {{ pay.accountbank }}</td><td>{{ pay.amountletter }}</td><td>{{ pay.detailpayment }}</td><td>{{ pay.datepayment }}</td><td>{{ pay.principal }}</td><td>{{ pay.accountnumber }}</td><td>{{ pay.ciostopay }}</td><td><a href="{% url 'payment:paymentdetail' pk=pay.id %}">{{ pay.principal }}</a></td></tr>
  {% endfor %}
 </table>
 </div>

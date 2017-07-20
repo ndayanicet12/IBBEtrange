@@ -46,6 +46,12 @@ class ListPayment(ListView):
         return context
 
 
+class DetailPayment(DetailView):
+    model=Paymentorder
+    template_name='payment/paymentdetail.html'
+    context_object_name = "payment"
+
+
 def  addpayment(request):
 	 
     if request.method=='POST':

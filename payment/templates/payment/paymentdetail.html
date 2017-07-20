@@ -1,0 +1,31 @@
+<center> 
+{% if payment %}
+
+ 
+<h1> Detail de payment :<br><br/> </h1>
+<table border="0">
+  <tr>
+      <p><td>Monnaie</td><td>{{ payment.monnaie }}   </td></p>
+  </tr><tr>
+      <p><td>Montant en chiffres</td><td>{{ payment.amountchiffre }}</p></td>
+  </tr>
+
+  <tr><p><td>Beneficiaire & Adresse</td><p><td>{{ payment.bank }}, {{ payment.accountbank }}</td></p></tr>
+  <tr>
+      <p><td>Banque & No de Compte   </td><td>{{ payment.beneficiary }},  {{ payment.address }} </p></td>
+  </tr>
+  <tr>
+      <p><td>IbanCode , Code SWIFT  & Adresse Banque </td><td>  {{ payment.ibancode }},  {{ payment.swiftcode }},  {{ payment.addressbank }}</p></td>
+  </tr>
+  <tr>
+      <p><td>Montant en lettres</td><td>{{ payment.amountletter }}</p></td>
+  </tr>
+  <tr><p><td> Details de paiement </td><td>{{ payment.detailpayment }} </td></p></tr>
+  <tr><p><td>Date</td><p><td>{{ payment.datepayment }}</td></p></tr>
+  <tr><p><td>Donneur d'ordre</td><p><td>{{ payment.principal }}</td></p></tr>
+  <tr><p><td>Numéro de Compte</td><p><td>{{ payment.accountnumber }}</td></p></tr>
+  <tr><p><td>Frais liés au transfert</td><p><td>{{ payment.ciostopay }}</td></p></tr> 
+ 
+</table>
+{% endif %}                        
+ </center> 
